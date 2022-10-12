@@ -1,11 +1,13 @@
-package com.solid.book;
+public class BookPublisher implements BookFilePrinter {
+    private BookPrinter adaptee;
 
+    public BookPublisher(BookPrinter adaptee) {
+        super();
+        this.adaptee = adaptee;
+    }
 
-import java.util.List;
-
-public class BookPublisher {
-    public static void main(String[] args) {
-        Book book = new Book("Tyland", List.of("I", "moved", "here", "recently", "too"));
-        book.printToFile();
+    @Override
+    public void printToFile() {
+        adaptee.printToFile();
     }
 }

@@ -1,11 +1,13 @@
-package com.solid.book;
+public class BookReader implements BookScreenPrinter {
+    private BookPrinter adaptee;
 
+    public BookReader(BookPrinter adaptee) {
+        super();
+        this.adaptee = adaptee;
+    }
 
-import java.util.List;
-
-public class BookReader {
-    public static void main(String[] args) {
-        Book book = new Book("Tyland", List.of("I", "moved", "here", "recently", "too"));
-        book.printToScreen();
+    @Override
+    public void printToScreen() {
+        adaptee.printToScreen();
     }
 }
